@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Στράτος Χατζηστρατής — Ειδικός Παιδίατρος | Πυλαία Θεσσαλονίκης</title>
+<meta name="description" content="Ειδικός Παιδίατρος με πολυετή νοσοκομειακή εμπειρία. Βρεφική παρακολούθηση, παιδοπνευμονολογία, εμβολιασμοί & κατ' οίκον επισκέψεις στην Πυλαία Θεσσαλονίκης.">
+<meta property="og:title" content="Στράτος Χατζηστρατής — Ειδικός Παιδίατρος">
+<meta property="og:description" content="Ειδικός Παιδίατρος με πολυετή νοσοκομειακή εμπειρία στην Πυλαία Θεσσαλονίκης.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/IMGxatz4533.JPG">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#152a3a;
+  --ink-soft:#3c5567;
+  --cloud:#f4f8fb;
+  --paper:#fbfdfe;
+  --sky:#2d9cdb;
+  --sky-deep:#1c6fa8;
+  --coral:#ff8a7a;
+  --coral-soft:#ffd9d1;
+  --mint:#7ad0c2;
+  --sun:#ffc857;
+  --line:rgba(21,42,58,.10);
+  --shadow:0 24px 60px -28px rgba(21,42,58,.42);
+  --shadow-sm:0 12px 30px -18px rgba(21,42,58,.45);
+  --r:26px;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+[lang-en]{display:none}
+body.en [lang-el]{display:none}
+body.en [lang-en]{display:inline}
+body.en [lang-en].block{display:block}
+
+/* ===== Loader ===== */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s}
+#loader.done{opacity:0;visibility:hidden}
+.heart-load{width:60px;height:60px;animation:beat 1.1s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}25%{transform:scale(1.18)}40%{transform:scale(1)}55%{transform:scale(1.12)}}
+
+/* ===== Nav ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:900;transition:.45s cubic-bezier(.16,1,.3,1)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;max-width:1320px;margin:0 auto;transition:.45s}
+header.scrolled .nav{padding:11px 26px}
+header.scrolled{background:rgba(251,253,254,.82);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:48px;height:48px;border-radius:13px;object-fit:cover;box-shadow:var(--shadow-sm);transition:.4s}
+header.scrolled .brand img{width:42px;height:42px}
+.brand-txt strong{font-family:'Fraunces';font-weight:600;font-size:1.12rem;display:block;letter-spacing:-.01em}
+.brand-txt span{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sky-deep);font-weight:600}
+.menu{display:flex;align-items:center;gap:6px}
+.menu a.lnk{padding:9px 15px;border-radius:40px;font-weight:600;font-size:.92rem;color:var(--ink-soft);transition:.3s;position:relative}
+.menu a.lnk:hover{color:var(--ink);background:var(--cloud)}
+.langs{display:flex;gap:5px;margin-left:8px;padding-left:14px;border-left:1px solid var(--line)}
+.flag{width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid transparent;opacity:.5;transition:.3s;font-size:1rem;display:flex;align-items:center;justify-content:center;background:var(--cloud)}
+.flag.active{opacity:1;border-color:var(--sky);transform:scale(1.05)}
+.flag:hover{opacity:.9}
+.cta-nav{background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#fff!important;padding:11px 22px!important;border-radius:40px;font-weight:700;box-shadow:0 10px 24px -10px var(--sky);margin-left:10px}
+.cta-nav:hover{background:linear-gradient(135deg,var(--sky),var(--sky-deep))!important;transform:translateY(-2px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.burger span{width:26px;height:2.5px;background:var(--ink);border-radius:3px;transition:.35s}
+
+/* ===== Mobile menu ===== */
+.mnav{position:fixed;inset:0;z-index:1000;background:var(--paper);transform:translateX(100%);transition:transform .55s cubic-bezier(.76,0,.24,1);display:flex;flex-direction:column;padding:90px 30px 40px}
+.mnav.open{transform:translateX(0)}
+.mclose{position:absolute;top:22px;right:24px;width:46px;height:46px;border-radius:50%;background:var(--cloud);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mclose::before,.mclose::after{content:'';position:absolute;width:20px;height:2.5px;background:var(--ink);border-radius:2px}
+.mclose::before{transform:rotate(45deg)}.mclose::after{transform:rotate(-45deg)}
+.mnav a{font-family:'Fraunces';font-size:1.9rem;padding:13px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateY(20px)}
+.mnav.open a{animation:slideIn .5s forwards}
+.mnav.open a:nth-child(2){animation-delay:.08s}
+.mnav.open a:nth-child(3){animation-delay:.14s}
+.mnav.open a:nth-child(4){animation-delay:.2s}
+.mnav.open a:nth-child(5){animation-delay:.26s}
+.mnav.open a:nth-child(6){animation-delay:.32s}
+@keyframes slideIn{to{opacity:1;transform:translateY(0)}}
+.mlangs{display:flex;gap:12px;margin-top:30px}
+.mlangs .flag{width:48px;height:48px;font-size:1.4rem}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:120px 0 60px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);filter:saturate(1.05)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(251,253,254,.97) 0%,rgba(244,248,251,.92) 40%,rgba(45,156,219,.32) 100%)}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:-1}
+.blob.a{width:420px;height:420px;background:var(--coral-soft);top:-120px;right:-80px;animation:float1 14s ease-in-out infinite}
+.blob.b{width:340px;height:340px;background:rgba(122,208,194,.5);bottom:-100px;left:-60px;animation:float2 18s ease-in-out infinite}
+@keyframes float1{50%{transform:translate(-40px,50px) scale(1.1)}}
+@keyframes float2{50%{transform:translate(50px,-40px) scale(1.08)}}
+.hero-inner{position:relative;z-index:2;max-width:760px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);padding:8px 18px;border-radius:40px;font-size:.82rem;font-weight:700;letter-spacing:.04em;color:var(--sky-deep);box-shadow:var(--shadow-sm);margin-bottom:26px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(122,208,194,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(122,208,194,0)}}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--sky-deep)}
+.hero p.lead{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--ink-soft);max-width:560px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:48px;font-weight:700;font-size:1rem;cursor:pointer;border:none;transition:.35s cubic-bezier(.16,1,.3,1);font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--coral),#ff6f5c);color:#fff;box-shadow:0 16px 34px -14px var(--coral)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 42px -14px var(--coral)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{transform:translateY(-3px)}
+.hero-stats{display:flex;gap:34px;margin-top:50px;flex-wrap:wrap}
+.hero-stats .st strong{font-family:'Fraunces';font-size:2.2rem;color:var(--ink);display:block;line-height:1}
+.hero-stats .st span{font-size:.85rem;color:var(--ink-soft);font-weight:600}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.mouse{width:24px;height:38px;border:2px solid var(--ink-soft);border-radius:14px;display:flex;justify-content:center;padding-top:7px}
+.mouse i{width:4px;height:7px;background:var(--ink-soft);border-radius:3px;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* ===== Reveal ===== */
+.reveal{opacity:0;transform:translateY(42px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ===== Sections ===== */
+section{position:relative}
+.sec{padding:110px 0}
+.tag{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);margin-bottom:14px}
+.sec-title{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:18px}
+.sec-title em{font-style:italic;color:var(--coral)}
+.sec-sub{color:var(--ink-soft);font-size:1.08rem;max-width:620px}
+
+/* ===== About ===== */
+.about{background:var(--cloud)}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.about-photo{position:relative}
+.about-photo .frame{border-radius:32px;overflow:hidden;box-shadow:var(--shadow);position:relative;cursor:zoom-in;transform:rotate(-2deg);transition:.5s}
+.about-photo .frame:hover{transform:rotate(0)}
+.about-photo .frame img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-badge{position:absolute;bottom:-22px;right:-18px;background:#fff;border-radius:22px;padding:18px 22px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
+.about-badge .ico{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--sky),var(--sky-deep));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.about-badge strong{font-family:'Fraunces';font-size:1.4rem;display:block;line-height:1}
+.about-badge span{font-size:.78rem;color:var(--ink-soft)}
+.about-body h2{font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:22px}
+.about-body p{color:var(--ink-soft);margin-bottom:16px}
+.cred-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.cred{background:#fff;border:1px solid var(--line);padding:9px 16px;border-radius:40px;font-size:.86rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+.cred svg{flex-shrink:0}
+
+/* ===== Services ===== */
+.srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:50px}
+.srv{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:34px;transition:.45s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.srv::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transform-origin:left;transition:.5s}
+.srv:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.srv:hover::before{transform:scaleX(1)}
+.srv .si{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 12px 26px -12px var(--c1)}
+.srv h3{font-size:1.4rem;margin-bottom:12px}
+.srv ul{list-style:none}
+.srv ul li{position:relative;padding-left:26px;margin-bottom:9px;color:var(--ink-soft);font-size:.95rem}
+.srv ul li::before{content:'';position:absolute;left:0;top:9px;width:14px;height:14px;border-radius:50%;background:var(--c2);opacity:.25}
+.srv ul li::after{content:'';position:absolute;left:4px;top:13px;width:6px;height:6px;border-radius:50%;background:var(--c2)}
+.s1{--c1:var(--coral);--c2:#ff6f5c}
+.s2{--c1:var(--mint);--c2:#4fb3a3}
+.s3{--c1:var(--sky);--c2:var(--sky-deep)}
+.s4{--c1:var(--sun);--c2:#f0a500}
+
+/* ===== Philosophy ===== */
+.philo{background:linear-gradient(160deg,var(--ink) 0%,#0e2030 100%);color:#fff;overflow:hidden}
+.philo .blob.c{width:500px;height:500px;background:rgba(45,156,219,.35);top:-150px;right:-100px}
+.philo .blob.d{width:400px;height:400px;background:rgba(255,138,122,.25);bottom:-150px;left:-100px}
+.philo .tag{color:var(--coral)}
+.philo .sec-title{color:#fff}
+.philo-quote{font-family:'Fraunces';font-size:clamp(1.4rem,3vw,2rem);font-style:italic;line-height:1.4;max-width:840px;margin:30px 0 50px;color:rgba(255,255,255,.92)}
+.philo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:32px;backdrop-filter:blur(8px);transition:.4s}
+.pcard:hover{background:rgba(255,255,255,.09);transform:translateY(-6px)}
+.pcard .pi{width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,var(--sky),var(--mint));display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pcard h3{color:#fff;font-size:1.25rem;margin-bottom:10px}
+.pcard p{color:rgba(255,255,255,.7);font-size:.94rem}
+
+/* ===== Space gallery ===== */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px;margin-top:50px}
+.gitem{border-radius:20px;overflow:hidden;cursor:zoom-in;position:relative;box-shadow:var(--shadow-sm)}
+.gitem img{width:100%;height:100%;object-fit:cover;transition:.7s cubic-bezier(.16,1,.3,1)}
+.gitem:hover img{transform:scale(1.08)}
+.gitem::after{content:'⤢';position:absolute;top:14px;right:14px;width:38px;height:38px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;opacity:0;transform:scale(.6);transition:.4s;color:var(--ink)}
+.gitem:hover::after{opacity:1;transform:scale(1)}
+.gitem.big{grid-column:span 2;grid-row:span 2}
+.gitem.wide{grid-column:span 2}
+
+/* ===== Reviews ===== */
+.reviews{background:var(--cloud)}
+.rev-track{display:flex;gap:22px;padding:50px 0 20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.rev-track::-webkit-scrollbar{height:8px}
+.rev-track::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.rev{min-width:360px;max-width:360px;background:var(--paper);border-radius:var(--r);padding:32px;box-shadow:var(--shadow-sm);scroll-snap-align:start;border:1px solid var(--line);position:relative;transition:.4s}
+.rev:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.rev .quote-mark{font-family:'Fraunces';font-size:4rem;line-height:.5;color:var(--coral-soft);position:absolute;top:24px;right:24px}
+.stars{display:flex;gap:3px;margin-bottom:16px}
+.stars svg{width:18px;height:18px}
+.rev p{color:var(--ink-soft);font-size:.96rem;margin-bottom:20px;position:relative;z-index:1}
+.rev .who{display:flex;align-items:center;gap:12px}
+.rev .av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:1.05rem;flex-shrink:0}
+.rev .who strong{display:block;font-size:.95rem}
+.rev .who span{font-size:.78rem;color:var(--ink-soft)}
+.rev-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;justify-content:center}
+.btn-google{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm);display:inline-flex;gap:10px}
+.btn-google:hover{transform:translateY(-3px)}
+
+/* ===== Contact ===== */
+.contact{background:linear-gradient(165deg,var(--sky-deep),#0d4a72);color:#fff;overflow:hidden}
+.contact .blob.e{width:480px;height:480px;background:rgba(255,200,87,.2);top:-140px;left:-80px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;position:relative;z-index:1}
+.contact .tag{color:var(--sun)}
+.contact h2{color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:18px}
+.contact h2 em{font-style:italic;color:var(--sun)}
+.contact .lead{color:rgba(255,255,255,.78);margin-bottom:34px;font-size:1.05rem}
+.cinfo{display:flex;flex-direction:column;gap:14px}
+.cline{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:18px 22px;border-radius:18px;transition:.35s;backdrop-filter:blur(6px)}
+.cline:hover{background:rgba(255,255,255,.14);transform:translateX(6px)}
+.cline .ci{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cline strong{display:block;font-size:1.02rem}
+.cline span{font-size:.82rem;color:rgba(255,255,255,.65)}
+.contact-card{background:#fff;color:var(--ink);border-radius:30px;padding:14px;box-shadow:var(--shadow)}
+.contact-card iframe{width:100%;height:300px;border:0;border-radius:20px;display:block}
+.note-appt{margin-top:18px;display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.08);padding:16px 20px;border-radius:16px;font-size:.9rem;color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.15)}
+
+/* ===== Footer ===== */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:60px 0 30px;text-align:center}
+.foot-brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px}
+.foot-brand img{width:46px;height:46px;border-radius:12px}
+.foot-brand strong{font-family:'Fraunces';font-size:1.3rem;color:#fff}
+.foot-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:24px 0;font-size:.9rem}
+.foot-links a:hover{color:#fff}
+.foot-div{height:1px;background:rgba(255,255,255,.1);max-width:500px;margin:30px auto}
+.foot-credit{font-size:.85rem}
+.foot-credit a{color:var(--coral);font-weight:700}
+.foot-credit a:hover{text-decoration:underline}
+
+/* ===== Lightbox ===== */
+.lb{position:fixed;inset:0;z-index:2000;background:rgba(10,18,26,.94);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.4s;backdrop-filter:blur(6px);padding:30px}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:92vw;max-height:88vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);transform:scale(.9);transition:.5s cubic-bezier(.16,1,.3,1)}
+.lb.open img{transform:scale(1)}
+.lb-close{position:absolute;top:26px;right:30px;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-close::before,.lb-close::after{content:'';position:absolute;width:22px;height:2.5px;background:#fff;border-radius:2px}
+.lb-close::before{transform:rotate(45deg)}.lb-close::after{transform:rotate(-45deg)}
+
+/* float deco */
+.float-deco{position:absolute;opacity:.5;animation:bob 6s ease-in-out infinite;z-index:0}
+@keyframes bob{50%{transform:translateY(-18px) rotate(8deg)}}
+
+/* ===== Responsive ===== */
+@media(max-width:920px){
+  .menu .lnk,.langs{display:none}
+  .cta-nav{display:none}
+  .burger{display:flex}
+  .about-grid{grid-template-columns:1fr;gap:60px}
+  .about-photo .frame{transform:none;max-width:420px;margin:0 auto}
+  .srv-grid{grid-template-columns:1fr}
+  .philo-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .gitem.big{grid-column:span 2;grid-row:span 1}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:560px){
+  .sec{padding:80px 0}
+  .hero-stats{gap:24px}
+  .rev{min-width:300px;max-width:300px}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:220px}
+  .gitem.big,.gitem.wide{grid-column:span 1}
+}
+</style>
+</head>
+<body class="el">
+
+<!-- Loader -->
+<div id="loader">
+  <svg class="heart-load" viewBox="0 0 32 29" fill="none">
+    <path d="M16 28C16 28 2 19 2 9.5C2 5 5.5 2 9.5 2C12.5 2 15 4 16 6C17 4 19.5 2 22.5 2C26.5 2 30 5 30 9.5C30 19 16 28 16 28Z" fill="#ff8a7a"/>
+  </svg>
+</div>
+
+<!-- Header -->
+<header id="header">
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/Gemini_Generated_Image_e8oq7ze8oq7ze8oq-2.png" alt="Λογότυπο">
+      <span class="brand-txt">
+        <strong>Στράτος Χατζηστρατής</strong>
+        <span lang-el>Ειδικός Παιδίατρος</span><span lang-en>Pediatrician</span>
+      </span>
+    </a>
+    <div class="menu">
+      <a class="lnk" href="#about"><span lang-el>Ο Ιατρός</span><span lang-en>About</span></a>
+      <a class="lnk" href="#services"><span lang-el>Υπηρεσίες</span><span lang-en>Services</span></a>
+      <a class="lnk" href="#philosophy"><span lang-el>Φιλοσοφία</span><span lang-en>Philosophy</span></a>
+      <a class="lnk" href="#space"><span lang-el>Χώρος</span><span lang-en>Space</span></a>
+      <a class="lnk" href="#reviews"><span lang-el>Κριτικές</span><span lang-en>Reviews</span></a>
+      <div class="langs">
+        <div class="flag active" data-lang="el" title="Ελληνικά">🇬🇷</div>
+        <div class="flag" data-lang="en" title="English">🇬🇧</div>
+      </div>
+      <a class="cta-nav" href="#contact"><span lang-el>Ραντεβού</span><span lang-en>Book</span></a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- Mobile nav -->
+<div class="mnav" id="mnav">
+  <button class="mclose" id="mclose" aria-label="Close"></button>
+  <a href="#about"><span lang-el>Ο Ιατρός</span><span lang-en>About</span></a>
+  <a href="#services"><span lang-el>Υπηρεσίες</span><span lang-en>Services</span></a>
+  <a href="#philosophy"><span lang-el>Φιλοσοφία</span><span lang-en>Philosophy</span></a>
+  <a href="#space"><span lang-el>Ο Χώρος</span><span lang-en>Space</span></a>
+  <a href="#reviews"><span lang-el>Κριτικές</span><span lang-en>Reviews</span></a>
+  <a href="#contact"><span lang-el>Επικοινωνία</span><span lang-en>Contact</span></a>
+  <div class="mlangs">
+    <div class="flag active" data-lang="el">🇬🇷</div>
+    <div class="flag" data-lang="en">🇬🇧</div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/dsdadsf.jpg" alt="Ιατρείο">
+  </div>
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow reveal in"><span class="dot"></span><span lang-el>Πυλαία, Θεσσαλονίκη · Παιδιατρική Φροντίδα</span><span lang-en>Pylaia, Thessaloniki · Pediatric Care</span></div>
+      <h1 class="reveal in d1">
+        <span lang-el>Δίπλα στο παιδί σας, <em>σε κάθε βήμα</em> της ανάπτυξής του.</span>
+        <span lang-en>Beside your child, <em>at every step</em> of their growth.</span>
+      </h1>
+      <p class="lead reveal in d2">
+        <span lang-el>Ο Στράτος Χατζηστρατής, Ειδικός Παιδίατρος με πολυετή νοσοκομειακή εμπειρία, προσφέρει επιστημονικά άρτια και βαθιά ανθρώπινη φροντίδα — από τα πρώτα λεπτά της ζωής έως την εφηβεία.</span>
+        <span lang-en>Stratos Hatzistratis, a Pediatric Specialist with years of hospital experience, offers scientifically rigorous and deeply human care — from the very first minutes of life through adolescence.</span>
+      </p>
+      <div class="hero-cta reveal in d3">
+        <a href="tel:+306948184224" class="btn btn-primary">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span lang-el>Κλείστε Ραντεβού</span><span lang-en>Book Appointment</span>
+        </a>
+        <a href="#about" class="btn btn-ghost"><span lang-el>Γνωρίστε τον ιατρό</span><span lang-en>Meet the doctor</span></a>
+      </div>
+      <div class="hero-stats reveal in d4">
+        <div class="st"><strong data-count="10">10+</strong><span lang-el>Χρόνια Εμπειρίας</span><span lang-en>Years Experience</span></div>
+        <div class="st"><strong>NLS</strong><span lang-el>Πιστοποιημένος Εκπαιδευτής</span><span lang-en>Certified Instructor</span></div>
+        <div class="st"><strong>★ 5.0</strong><span lang-el>Αξιολογήσεις Ασθενών</span><span lang-en>Patient Reviews</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="mouse"><i></i></div><span>scroll</span></div>
+</section>
+
+<!-- About -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="frame zoom" data-src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/IMGxatz4533.JPG">
+          <img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/IMGxatz4533.JPG" alt="Στράτος Χατζηστρατής">
+        </div>
+        <div class="about-badge">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 8l6 1-4.5 4.5L18 21l-6-3.5L6 21l1.5-7.5L3 9l6-1z" fill="#fff"/></svg></div>
+          <div><strong>10+</strong><span lang-el>χρόνια εμπειρίας</span><span lang-en>years of experience</span></div>
+        </div>
+      </div>
+      <div class="about-body reveal d1">
+        <span class="tag"><span lang-el>Ο Ιατρός</span><span lang-en>The Doctor</span></span>
+        <h2><span lang-el>Επιστημονική γνώση με <em style="font-style:italic;color:var(--coral)">ανθρώπινο πρόσωπο</em>.</span><span lang-en>Scientific knowledge with a <em style="font-style:italic;color:var(--coral)">human face</em>.</span></h2>
+        <p><span lang-el>Ο Ευστράτιος (Στράτος) Χατζηστρατής είναι Ειδικός Παιδίατρος και από τον Ιούνιο του 2021 διατηρεί το ιδιωτικό του ιατρείο στην Πυλαία Θεσσαλονίκης. Απέκτησε το πτυχίο Ιατρικής το 2005 και τον τίτλο της παιδιατρικής ειδικότητας το 2016.</span><span lang-en>Efstratios (Stratos) Hatzistratis is a Pediatric Specialist who has run his private practice in Pylaia, Thessaloniki since June 2021. He earned his medical degree in 2005 and his pediatric specialty title in 2016.</span></p>
+        <p><span lang-el>Η πορεία του διακρίνεται από απαιτητική νοσοκομειακή θητεία: υπηρέτησε ως Επικουρικός Παιδίατρος στο Γ.Ν. Κιλκίς (2017–2021) και ολοκλήρωσε την ειδικότητά του στην 3η Παιδιατρική Κλινική του Ιπποκράτειου Θεσσαλονίκης και στο Γ.Ν. Βέροιας, με εξειδίκευση στο Παιδοπνευμονολογικό Τμήμα και στη Μονάδα Εντατικής Νοσηλείας Παίδων.</span><span lang-en>His path is marked by demanding hospital service: he worked as an Assistant Pediatrician at Kilkis General Hospital (2017–2021) and completed his specialty at the 3rd Pediatric Clinic of Hippokrateio Thessaloniki and Veria General Hospital, with specialization in the Pediatric Pulmonology Department and the Pediatric Intensive Care Unit.</span></p>
+        <p><span lang-el>Ως πιστοποιημένος Εκπαιδευτής στην Υποστήριξη της Ζωής Νεογνού (NLS), συμμετέχει αδιάλειπτα σε διεθνή συνέδρια και επιστημονικά συμπόσια, παραμένοντας πάντα στην αιχμή της παιδιατρικής γνώσης.</span><span lang-en>As a certified Neonatal Life Support (NLS) Instructor, he continuously takes part in international congresses and scientific symposia, always staying at the forefront of pediatric knowledge.</span></p>
+        <div class="cred-row">
+          <span class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2d9cdb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span lang-el>Εκπαιδευτής NLS</span><span lang-en>NLS Instructor</span></span>
+          <span class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2d9cdb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span lang-el>Παιδοπνευμονολογία</span><span lang-en>Pediatric Pulmonology</span></span>
+          <span class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2d9cdb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span lang-el>ΜΕΝ Παίδων</span><span lang-en>Pediatric ICU</span></span>
+          <span class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2d9cdb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span lang-el>Παιδοαλλεργιολογία</span><span lang-en>Pediatric Allergology</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto">
+      <span class="tag"><span lang-el>Υπηρεσίες</span><span lang-en>Services</span></span>
+      <h2 class="sec-title"><span lang-el>Ολοκληρωμένη φροντίδα, <em>σε κάθε ηλικία</em>.</span><span lang-en>Complete care, <em>at every age</em>.</span></h2>
+      <p class="sec-sub" style="margin:0 auto"><span lang-el>Από το νεογέννητο μέχρι τον έφηβο — μια φροντίδα προσαρμοσμένη στις πραγματικές ανάγκες της σύγχρονης οικογένειας.</span><span lang-en>From the newborn to the teenager — care tailored to the real needs of the modern family.</span></p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv s1 reveal">
+        <div class="si"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" fill="#fff"/></svg></div>
+        <h3><span lang-el>Βρεφική Παρακολούθηση & Νέοι Γονείς</span><span lang-en>Infant Monitoring & New Parents</span></h3>
+        <ul>
+          <li><span lang-el>Πλήρης παρακολούθηση ανάπτυξης νεογνών, παίδων & εφήβων</span><span lang-en>Full developmental monitoring for newborns, children & teens</span></li>
+          <li><span lang-el>Προγεννητικές συμβουλευτικές συναντήσεις για μέλλοντες γονείς</span><span lang-en>Prenatal counseling sessions for expecting parents</span></li>
+          <li><span lang-el>Εξειδικευμένη υποστήριξη μητρικού θηλασμού & διατροφής</span><span lang-en>Specialized breastfeeding & nutrition guidance</span></li>
+        </ul>
+      </div>
+      <div class="srv s2 reveal d1">
+        <div class="si"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M6 3v8a6 6 0 0 0 12 0V3M9 3v3M15 3v3M12 17v2a3 3 0 0 0 6 0v-1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="13" r="2" stroke="#fff" stroke-width="2"/></svg></div>
+        <h3><span lang-el>Παιδοπνευμονολογία & Αλλεργιολογία</span><span lang-en>Pediatric Pulmonology & Allergology</span></h3>
+        <ul>
+          <li><span lang-el>Διάγνωση & διαχείριση αναπνευστικών (άσθμα, βρογχιολίτιδα)</span><span lang-en>Diagnosis & management of respiratory conditions (asthma, bronchiolitis)</span></li>
+          <li><span lang-el>Έλεγχος αναπνοής μέσω σπιρομέτρησης</span><span lang-en>Breathing assessment via spirometry</span></li>
+          <li><span lang-el>Αντιμετώπιση αλλεργιών & ατοπικής δερματίτιδας</span><span lang-en>Treatment of allergies & atopic dermatitis</span></li>
+        </ul>
+      </div>
+      <div class="srv s3 reveal">
+        <div class="si"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z" stroke="#fff" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3><span lang-el>Πρόληψη, Εμβολιασμοί & Λοιμώξεις</span><span lang-en>Prevention, Vaccinations & Infections</span></h3>
+        <ul>
+          <li><span lang-el>Κατάρτιση Εθνικού Προγράμματος Εμβολιασμών με ακρίβεια</span><span lang-en>Precise National Vaccination Program scheduling</span></li>
+          <li><span lang-el>Άμεση αντιμετώπιση οξειών λοιμώξεων (γρίπη, ιώσεις, ουρολοιμώξεις)</span><span lang-en>Immediate treatment of acute infections (flu, viruses, UTIs)</span></li>
+          <li><span lang-el>Rapid test, έλεγχος αντισωμάτων & πιστοποιητικά υγείας</span><span lang-en>Rapid tests, antibody checks & health certificates</span></li>
+        </ul>
+      </div>
+      <div class="srv s4 reveal d1">
+        <div class="si"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3><span lang-el>Ευελιξία & Κατ' Οίκον Φροντίδα</span><span lang-en>Flexibility & Home Visits</span></h3>
+        <ul>
+          <li><span lang-el>Δυνατότητα κατ' οίκον επισκέψεων όταν χρειάζεται</span><span lang-en>Home visits available when needed</span></li>
+          <li><span lang-el>Ιατρική περίθαλψη στο οικείο & ασφαλές περιβάλλον του παιδιού</span><span lang-en>Medical care in the child's familiar, safe environment</span></li>
+          <li><span lang-el>Προσαρμογή στις ανάγκες της σύγχρονης οικογένειας</span><span lang-en>Adapted to the needs of the modern family</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="sec philo" id="philosophy">
+  <div class="blob c"></div>
+  <div class="blob d"></div>
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px">
+      <span class="tag"><span lang-el>Η Φιλοσοφία μου</span><span lang-en>My Philosophy</span></span>
+      <h2 class="sec-title"><span lang-el>Από την Εντατική Νεογνών <em style="color:var(--mint)">στην καθημερινή φροντίδα</em>.</span><span lang-en>From the Neonatal ICU <em style="color:var(--mint)">to everyday care</em>.</span></h2>
+    </div>
+    <p class="philo-quote reveal d1">
+      <span lang-el>«Όταν εξετάζω ένα παιδί, η προσέγγισή μου δεν βασίζεται μόνο στη θεωρία. Βασίζεται στα αντανακλαστικά που χτίστηκαν μέσα από την πολυετή θητεία μου στην εντατική και την κλινική — η νοσοκομειακή εμπειρία μαθαίνει στον ιατρό να αξιολογεί γρήγορα, να μένει ψύχραιμος και να προλαμβάνει.»</span>
+      <span lang-en>"When I examine a child, my approach isn't based on theory alone. It's built on the reflexes formed through years of service in the ICU and the clinic — hospital experience teaches a physician to assess quickly, stay calm, and prevent."</span>
+    </p>
+    <div class="philo-grid">
+      <div class="pcard reveal">
+        <div class="pi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2a3 3 0 0 1 3 3v1a3 3 0 0 1 3 3 3 3 0 0 1-1 5.65V18a3 3 0 0 1-6 0 3 3 0 0 1-6 0v-3.35A3 3 0 0 1 5 9a3 3 0 0 1 3-3V5a3 3 0 0 1 4-3z" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <h3><span lang-el>Η Ασφάλεια στο Επίκεντρο</span><span lang-en>Safety at the Core</span></h3>
+        <p><span lang-el>Ως ενεργός Εκπαιδευτής NLS, κάθε εξέταση ρουτίνας του βρέφους σας γίνεται με το ανώτατο επίπεδο κλινικής εγρήγορσης — απόλυτη σιγουριά για κάθε γονιό.</span><span lang-en>As an active NLS Instructor, every routine examination of your infant is carried out with the highest level of clinical alertness — complete reassurance for every parent.</span></p>
+      </div>
+      <div class="pcard reveal d1">
+        <div class="pi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3 8 4-16 3 8h4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span lang-el>Προστατεύοντας την Αναπνοή</span><span lang-en>Protecting the Breath</span></h3>
+        <p><span lang-el>Η θητεία στο Παιδοπνευμονολογικό Τμήμα μου επιτρέπει να διαχειρίζομαι αποτελεσματικά το παιδικό άσθμα και τις χρόνιες λοιμώξεις, χωρίς άσκοπες φαρμακευτικές επιβαρύνσεις.</span><span lang-en>My time in the Pediatric Pulmonology Department lets me effectively manage childhood asthma and chronic infections — without unnecessary medication burdens.</span></p>
+      </div>
+      <div class="pcard reveal d2">
+        <div class="pi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3><span lang-el>Συνεχής Εξέλιξη</span><span lang-en>Continuous Evolution</span></h3>
+        <p><span lang-el>Μέσα από αδιάλειπτη συμμετοχή σε συνέδρια, οι θεραπευτικές μου επιλογές αντανακλούν πάντα τα πιο σύγχρονα και ασφαλή παγκόσμια δεδομένα (Evidence-Based Medicine).</span><span lang-en>Through ongoing participation in congresses, my treatment choices always reflect the most current and safe global evidence (Evidence-Based Medicine).</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Space gallery -->
+<section class="sec" id="space">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto">
+      <span class="tag"><span lang-el>Ο Χώρος</span><span lang-en>The Space</span></span>
+      <h2 class="sec-title"><span lang-el>Ένα ιατρείο <em>φιλικό στα παιδιά</em>.</span><span lang-en>A clinic that's <em>friendly to children</em>.</span></h2>
+      <p class="sec-sub" style="margin:0 auto"><span lang-el>Ζεστό, ήρεμο και προσβάσιμο — με ισόγειο χώρο και εύκολη πρόσβαση. Κάντε κλικ σε κάθε φωτογραφία για μεγέθυνση.</span><span lang-en>Warm, calm and accessible — ground-floor space with easy access. Click any photo to enlarge.</span></p>
+    </div>
+    <div class="gallery">
+      <div class="gitem big zoom" data-src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnasdmed-160.jpg"><img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnasdmed-160.jpg" alt="Χώρος ιατρείου"></div>
+      <div class="gitem zoom" data-src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnaxasdmed-164.jpg"><img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnaxasdmed-164.jpg" alt="Χώρος ιατρείου"></div>
+      <div class="gitem zoom" data-src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnxadamed-162.jpg"><img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnxadamed-162.jpg" alt="Χώρος ιατρείου"></div>
+      <div class="gitem wide zoom" data-src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unxasdnamed-165.jpg"><img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unxasdnamed-165.jpg" alt="Χώρος ιατρείου"></div>
+      <div class="gitem zoom" data-src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnamsadased-163.jpg"><img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/unnamsadased-163.jpg" alt="Χώρος ιατρείου"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="sec reviews" id="reviews">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto">
+      <span class="tag"><span lang-el>Η δική σας φωνή</span><span lang-en>Your Voice</span></span>
+      <h2 class="sec-title"><span lang-el>Η εμπιστοσύνη που <em>μας τιμά</em>.</span><span lang-en>The trust that <em>honors us</em>.</span></h2>
+      <p class="sec-sub" style="margin:0 auto"><span lang-el>Η μεγαλύτερη επιβράβευση είναι τα υγιή χαμόγελα των παιδιών και η ηρεμία των γονέων που μας εμπιστεύονται.</span><span lang-en>Our greatest reward is the healthy smiles of children and the peace of mind of the parents who trust us.</span></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rev-track" id="revtrack">
+      <!-- review cards injected -->
+    </div>
+    <div class="rev-actions">
+      <a href="https://www.google.com/search?client=safari&hs=rwp&sa=X&sca_esv=eaca09e5d8679415&rls=en&q=%CE%A7%CE%91%CE%A4%CE%96%CE%97%CE%A3%CE%A4%CE%A1%CE%91%CE%A4%CE%97%CE%A3+%CE%A3%CE%A4%CE%A1%CE%91%CE%A4%CE%9F%CE%A3+Reviews&rldimm=16707088957558314417&tbm=lcl#lkt=LocalPoiReviews" target="_blank" rel="noopener" class="btn btn-google">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 4.75c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 1.48 14.97.5 12 .5A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.3 9.14 4.75 12 4.75z"/></svg>
+        <span lang-el>Διαβάστε κριτικές στο Google</span><span lang-en>Read reviews on Google</span>
+      </a>
+      <a href="https://www.google.com/search?client=safari&hs=rwp&sa=X&sca_esv=eaca09e5d8679415&rls=en&q=%CE%A7%CE%91%CE%A4%CE%96%CE%97%CE%A3%CE%A4%CE%A1%CE%91%CE%A4%CE%97%CE%A3+%CE%A3%CE%A4%CE%A1%CE%91%CE%A4%CE%9F%CE%A3+Reviews&rldimm=16707088957558314417&tbm=lcl#lkt=LocalPoiReviews" target="_blank" rel="noopener" class="btn btn-primary">
+        <span lang-el>Αξιολογήστε την εμπειρία σας</span><span lang-en>Rate your experience</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="sec contact" id="contact">
+  <div class="blob e"></div>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="tag"><span lang-el>Επικοινωνία</span><span lang-en>Contact</span></span>
+        <h2><span lang-el>Ας <em>γνωριστούμε</em>.</span><span lang-en>Let's <em>get to know each other</em>.</span></h2>
+        <p class="lead"><span lang-el>Όλες οι επισκέψεις, στο ιατρείο ή κατ' οίκον, πραγματοποιούνται κατόπιν προγραμματισμένου ραντεβού.</span><span lang-en>All visits, at the clinic or at home, take place by scheduled appointment.</span></p>
+        <div class="cinfo">
+          <a href="tel:+306948184224" class="cline">
+            <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>694 818 4224</strong><span lang-el>Κινητό τηλέφωνο</span><span lang-en>Mobile phone</span></div>
+          </a>
+          <a href="mailto:efstratios33@yahoo.com" class="cline">
+            <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="#fff" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><strong>efstratios33@yahoo.com</strong><span lang-el>Email</span><span lang-en>Email</span></div>
+          </a>
+          <a href="https://maps.google.com/?q=Eratous+8,+Pylaia+555+35" target="_blank" rel="noopener" class="cline">
+            <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#fff" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#fff" stroke-width="2"/></svg></div>
+            <div><strong>Εράτους 8, Πυλαία 555 35</strong><span lang-el>Πυλαία, Θεσσαλονίκη</span><span lang-en>Pylaia, Thessaloniki</span></div>
+          </a>
+          <a href="https://www.facebook.com/p/Παιδίατρος-Χατζηστρατής-Στράτος-100068821656119/" target="_blank" rel="noopener" class="cline">
+            <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <div><strong>Facebook</strong><span lang-el>Παιδίατρος Χατζηστρατής Στράτος</span><span lang-en>Pediatrician Hatzistratis Stratos</span></div>
+          </a>
+        </div>
+        <div class="note-appt">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2"/><path d="M12 8v4l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          <span lang-el>Ωράριο κατόπιν ραντεβού. Καλέστε για να κλείσετε την επίσκεψή σας.</span><span lang-en>Hours by appointment. Call to schedule your visit.</span>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <div class="contact-card">
+          <iframe loading="lazy" src="https://www.google.com/maps?q=Eratous+8,+Pylaia+555+35,+Greece&output=embed" title="Map"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <img src="https://raw.githubusercontent.com/agelmet/XATZISTRATIS/3292aae3b068353d46f053968a0e4476b89ff826/Gemini_Generated_Image_e8oq7ze8oq7ze8oq-2.png" alt="Λογότυπο">
+      <strong>Στράτος Χατζηστρατής</strong>
+    </div>
+    <p style="max-width:440px;margin:0 auto;font-size:.92rem"><span lang-el>Ειδικός Παιδίατρος · Πυλαία Θεσσαλονίκης · Φροντίδα με γνώση και ανθρωπιά.</span><span lang-en>Pediatric Specialist · Pylaia Thessaloniki · Care with knowledge and humanity.</span></p>
+    <div class="foot-links">
+      <a href="#about"><span lang-el>Ο Ιατρός</span><span lang-en>About</span></a>
+      <a href="#services"><span lang-el>Υπηρεσίες</span><span lang-en>Services</span></a>
+      <a href="#space"><span lang-el>Ο Χώρος</span><span lang-en>Space</span></a>
+      <a href="#reviews"><span lang-el>Κριτικές</span><span lang-en>Reviews</span></a>
+      <a href="#contact"><span lang-el>Επικοινωνία</span><span lang-en>Contact</span></a>
+    </div>
+    <div class="foot-div"></div>
+    <p class="foot-credit">© <span id="yr"></span> Στράτος Χατζηστρατής · <span lang-el>Σχεδιασμός & κατασκευή από</span><span lang-en>Designed & built by</span> <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lb" id="lb"><button class="lb-close" id="lbclose" aria-label="Close"></button><img id="lbimg" src="" alt=""></div>
+
+<script>
+// Loader
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('done'),550)});
+
+// Header scroll
+const header=document.getElementById('header');
+addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>40)});
+
+// Mobile menu
+const mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=()=>{mnav.classList.add('open');document.body.style.overflow='hidden'};
+const closeM=()=>{mnav.classList.remove('open');document.body.style.overflow=''};
+document.getElementById('mclose').onclick=closeM;
+mnav.querySelectorAll('a').forEach(a=>a.onclick=closeM);
+
+// Language switch
+document.querySelectorAll('.flag').forEach(f=>{
+  f.onclick=()=>{
+    const l=f.dataset.lang;
+    document.body.classList.toggle('en',l==='en');
+    document.documentElement.lang=l;
+    document.querySelectorAll('.flag').forEach(x=>x.classList.toggle('active',x.dataset.lang===l));
+  };
+});
+
+// Reveal on scroll
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.14});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+
+// Lightbox
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+document.querySelectorAll('.zoom').forEach(z=>{
+  z.onclick=()=>{lbimg.src=z.dataset.src;lb.classList.add('open');document.body.style.overflow='hidden'};
+});
+const closeLb=()=>{lb.classList.remove('open');document.body.style.overflow=''};
+document.getElementById('lbclose').onclick=closeLb;
+lb.onclick=e=>{if(e.target===lb)closeLb()};
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+// Year
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Hero parallax
+const hbg=document.querySelector('.hero-bg img');
+addEventListener('scroll',()=>{const y=scrollY;if(y<800&&hbg)hbg.style.transform=`scale(1.12) translateY(${y*0.18}px)`});
+
+// Reviews data (EL primary, EN translation)
+const reviews=[
+  {n:'Myrsini Ntemi',c:'#ff8a7a',el:'Είναι ο γιατρός που θέλεις να σε συμπορεύεται σε όλη την παιδική ηλικία, γιατί ξέρεις ότι θα είσαι 100% ασφαλής. Πάντα παρών — όταν υπάρχει σοβαρό πρόβλημα, καλεί ο ίδιος για να ρωτήσει την πορεία του παιδιού. Τίμιος, ηθικός και σπουδαίος επιστήμονας.',en:'He is the doctor you want walking beside you through your child\'s whole childhood, because you know you\'ll be 100% safe. Always present — when there\'s a serious issue, he calls himself to ask how the child is doing. Honest, ethical and a brilliant scientist.'},
+  {n:'Argyris Dintsis',c:'#2d9cdb',el:'Στη μεγάλη περιπέτεια υγείας του παιδιού μας, ο μόνος παιδίατρος που στάθηκε επάξια. Οι διαγνώσεις του ακριβείς, μετά από προσεκτική εξέταση, αφού μας άκουσε με υπομονή. Η ιατρική για τον κ. Χατζηστρατή είναι λειτούργημα και όχι επάγγελμα.',en:'In our child\'s great health ordeal, he was the only pediatrician who truly rose to the occasion. His diagnoses were precise, after careful examination and patient listening. For Dr. Hatzistratis, medicine is a calling, not a profession.'},
+  {n:'Χριστίνα Μυκονίου',c:'#7ad0c2',el:'Ο καλύτερος γιατρός με πραγματικό ενδιαφέρον για τα παιδιά! Πάντα διαθέσιμος, πρόθυμος, εξυπηρετικός, καταρτισμένος — ηρεμεί γονείς και μικρούς ασθενείς. Δεν ξέρω τι θα έκανα χωρίς εσάς!',en:'The best doctor, with genuine care for children! Always available, willing, helpful and well-trained — he calms both parents and little patients. I don\'t know what I\'d do without you!'},
+  {n:'Daphne Samara',c:'#ffc857',el:'Υπέροχος γιατρός και άνθρωπος! Μας έχει αναλάβει από την πρώτη μέρα ζωής της κόρης μας. Πάντα ήρεμος και κατατοπιστικός. Μας βοήθησε πάρα πολύ στον θηλασμό. Είμαστε πολύ ασφαλείς στα χέρια του!',en:'A wonderful doctor and person! He has cared for us since the first day of our daughter\'s life. Always calm and informative. He helped us so much with breastfeeding. We feel completely safe in his hands!'},
+  {n:'Marina',c:'#ff6f5c',el:'Εξαιρετικός γιατρός! Επιστήμονας αλλά και άνθρωπος, πάντα διαθέσιμος για κάθε απορία. Ως νέοι γονείς νιώθουμε ότι είμαστε σε πολύ καλά χέρια. Το μωράκι μας πάντα χαμογελάει όταν εξετάζεται!',en:'An excellent doctor! A scientist and a human being, always available for any question. As new parents we feel we\'re in very good hands. Our baby always smiles when being examined!'},
+  {n:'Eirini Charcharidou',c:'#4fb3a3',el:'Εξαιρετικός Παιδίατρος. Υπομονετικός και πάντα πρόθυμος να απαντήσει σε κάθε ερώτηση. Κάνει επισκέψεις στο σπίτι όταν χρειάζεται. Πολύ ωραίος χώρος το ιατρείο, σε ισόγειο με εύκολο παρκάρισμα.',en:'An excellent pediatrician. Patient and always willing to answer any question. He makes home visits when needed. A lovely clinic on the ground floor with easy parking.'},
+  {n:'K. C.',c:'#1c6fa8',el:'Πόσο φανταστικός γιατρός! Είναι πολύ τυχερά τα παιδάκια μας που έχουν τον κ. Στράτο παιδίατρο. Από γνώσεις δεν υπάρχει, από ενσυναίσθηση καλύτερος κι από παιδαγωγό — ήρεμος, γίνεται φίλος με το παιδί, πάντα διαθέσιμος.',en:'What a fantastic doctor! Our kids are so lucky to have Dr. Stratos. Unmatched in knowledge, with more empathy than a teacher — calm, becomes a friend to the child, always available.'},
+  {n:'Sissi Darla',c:'#f0a500',el:'Ο παιδίατρος που θα ήθελαν όλοι οι γονείς για τα παιδιά τους! Εξαιρετικός επιστήμονας και άνθρωπος. Είμαστε πολύ τυχεροί που σας βρήκαμε κ. Στράτο!',en:'The pediatrician every parent would want for their children! An excellent scientist and person. We are so lucky to have found you, Dr. Stratos!'},
+  {n:'Elpi Koukots',c:'#2d9cdb',el:'Εξαιρετικός επιστήμονας και πάνω από όλα προσιτός σε γονείς και παιδιά. Σου δημιουργεί το αίσθημα της ασφάλειας και είναι πάντα δίπλα μας, όποια ώρα κι αν επικοινωνήσουμε. Είμαστε ευτυχείς που είναι ο παιδίατρός μας!',en:'An excellent scientist and, above all, approachable to both parents and children. He gives you a feeling of safety and is always there, whatever time we reach out. We\'re happy he\'s our pediatrician!'},
+  {n:'Χρήστος Νεανίδης',c:'#ff8a7a',el:'Ο μόνος γιατρός που βρήκε και ασχολήθηκε με το πρόβλημα υγείας που αντιμετώπισε η κόρη μου. Ο καλύτερος γιατρός με διαφορά. Τον συστήνω ανεπιφύλακτα.',en:'The only doctor who identified and dealt with the health problem my daughter faced. The best doctor by far. I recommend him without reservation.'}
+];
+const track=document.getElementById('revtrack');
+const star='<svg viewBox="0 0 24 24" fill="#ffc857"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7L12 18l-6.6 3.2L6.7 14l-5-4.8 7-.9z"/></svg>';
+reviews.forEach(r=>{
+  const init=r.n.replace(/[^Α-Ωα-ωA-Za-z ]/g,'').trim().split(' ').map(w=>w[0]).slice(0,2).join('');
+  const d=document.createElement('div');d.className='rev';
+  d.innerHTML=`<span class="quote-mark">"</span><div class="stars">${star.repeat(5)}</div>
+  <p><span lang-el>${r.el}</span><span lang-en>${r.en}</span></p>
+  <div class="who"><div class="av" style="background:linear-gradient(135deg,${r.c},${r.c}cc)">${init}</div>
+  <div><strong>${r.n}</strong><span lang-el>Γονέας · Google Κριτική</span><span lang-en>Parent · Google Review</span></div></div>`;
+  track.appendChild(d);
+});
+// observe newly created reveals not needed; reviews already visible. Re-bind language spans handled by CSS.
+</script>
+</body>
+</html>
